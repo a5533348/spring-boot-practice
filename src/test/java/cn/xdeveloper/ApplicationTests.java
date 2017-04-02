@@ -1,16 +1,25 @@
 package cn.xdeveloper;
 
+import cn.xdeveloper.entity.User;
+import cn.xdeveloper.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.annotation.Resource;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ApplicationTests {
 
-	@Test
-	public void contextLoads() {
-	}
+    @Resource
+    private UserService userService;
+
+    @Test
+    public void testUserService(){
+        User user = userService.login("root","444");
+        System.out.println(user);
+    }
 
 }
